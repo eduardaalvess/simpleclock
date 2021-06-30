@@ -31,7 +31,7 @@ public class MyFrame extends JFrame {
 
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
         dayFormat = new SimpleDateFormat("E");
-        dateFormat = new SimpleDateFormat("MMMMM dd, yyyy");
+        dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
 
         /*
 
