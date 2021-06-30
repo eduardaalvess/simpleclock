@@ -1,7 +1,10 @@
 package ClockApp;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -25,10 +28,38 @@ public class MyFrame extends JFrame {
 
         timeLabel = new JLabel();
 
-        time = timeFormat.format(Calendar.getInstance().getTime());
-        timeLabel.setText(time);
+        timeLabel.setFont(new Font("Consolas", Font.PLAIN, 50));
+
+        timeLabel.setForeground(new Color(737373));
+
+        timeLabel.setBackground(Color.lightGray);
+
+        timeLabel.setOpaque(true);
+
         this.add(timeLabel);
 
         this.setVisible(true);
+
+        setTime();
+    }
+
+    public void setTime() {
+
+        while(true) {
+
+            time = timeFormat.format(Calendar.getInstance().getTime());
+            timeLabel.setText(time);
+
+            try {
+
+                Thread.sleep(1000);
+
+            } catch (InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
+
+        }
+
     }
 }
