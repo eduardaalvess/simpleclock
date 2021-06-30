@@ -10,11 +10,16 @@ import java.util.Calendar;
 
 public class MyFrame extends JFrame {
 
-    String time;
-
     Calendar calendar;
     SimpleDateFormat timeFormat;
+    SimpleDateFormat dayFormat;
+    SimpleDateFormat dateFormat;
     JLabel timeLabel;
+    JLabel dayLabel;
+    JLabel dateLabel;
+    String day;
+    String time;
+    String date;
 
     MyFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,6 +30,14 @@ public class MyFrame extends JFrame {
         this.setResizable(false);
 
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
+        dayFormat = new SimpleDateFormat("E");
+        dateFormat = new SimpleDateFormat("MMMMM dd, yyyy");
+
+        /*
+
+        --------------- TIME -----------------
+
+         */
 
         timeLabel = new JLabel();
 
@@ -36,8 +49,27 @@ public class MyFrame extends JFrame {
 
         timeLabel.setOpaque(true);
 
-        this.add(timeLabel);
+        /*
 
+        --------------- DAY -----------------
+
+         */
+
+        dayLabel = new JLabel();
+        dayLabel.setFont(new Font("Consolas",Font.PLAIN,25));
+
+        /*
+
+        ------------------ DATE -----------------
+
+         */
+
+        dateLabel = new JLabel();
+        dateLabel.setFont(new Font("Consolas",Font.PLAIN,25));
+
+        this.add(timeLabel);
+        this.add(dayLabel);
+        this.add(dateLabel);
         this.setVisible(true);
 
         setTime();
@@ -49,6 +81,12 @@ public class MyFrame extends JFrame {
 
             time = timeFormat.format(Calendar.getInstance().getTime());
             timeLabel.setText(time);
+
+            day = dayFormat.format(Calendar.getInstance().getTime());
+            dayLabel.setText(day);
+
+            date = dateFormat.format(Calendar.getInstance().getTime());
+            dateLabel.setText(date);
 
             try {
 
